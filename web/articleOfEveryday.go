@@ -72,3 +72,24 @@ func (ev *EveryDayVoiceProcessor) Process(p *downloader.Page) {
 		p.PutField("author", strings.TrimSpace(author))
 	})
 }
+
+type EveryDayBookProcessor struct {
+}
+
+func (ev *EveryDayBookProcessor) Process(p *downloader.Page) {
+	q, err := p.Parser()
+	if err != nil {
+		Slogger.Error(err)
+		return
+	}
+	q.Find(".book-list li").Each(func(index int, s *goquery.Selection) {
+		url := s.Find(".book-bg").AttrOr("href", "")
+		p.PutField("URL", strings.TrimSpace(url))
+		pic := s.Find(".book-bg img").AttrOr("src", "")
+		p.PutField("PicURL", strings.TrimSpace(pic))
+		title := s.Find(".book-name a").Text()
+		p.PutField("Title", strings.TrimSpace(title))
+		author := s.Find(".book-author").Text()
+		p.PutField("author", strings.TrimSpace(author))
+	})
+}
