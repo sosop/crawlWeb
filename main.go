@@ -1,7 +1,7 @@
 package main
 
 import (
-	"crawlWeb/web"
+	"crawlWeb/site"
 	"goMagic/core"
 	"goMagic/pipe"
 )
