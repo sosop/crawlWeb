@@ -1,14 +1,14 @@
-package utils
+package slog
 
 import (
 	slog "github.com/cihub/seelog"
 )
 
-var Slogger slog.LoggerInterface
+var Logger slog.LoggerInterface
 
 func init() {
 	var err error
-	Slogger, err = slog.LoggerFromConfigAsFile("slog.xml")
+	Logger, err = slog.LoggerFromConfigAsFile("slog.xml")
 	if err != nil {
 		panic(err)
 	}

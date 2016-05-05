@@ -2,6 +2,7 @@ package pipe
 
 import (
 	"crawlWeb/config"
+	. "crawlWeb/slog"
 	"crawlWeb/web"
 	"fmt"
 	"goMagic/downloader"
@@ -43,14 +44,16 @@ func (pipe *RPCEverydayPipeline) Out(p *downloader.Page) error {
 	}
 	resp, err := http.PostForm(realUrl, params)
 	if err != nil {
+		Logger.Error(err)
 		return err
 	}
 	defer resp.Body.Close()
 	ret, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
+		Logger.Error(err)
 		return err
 	}
-	fmt.Println(string(ret))
+	Logger.Info(string(ret))
 	return nil
 }
 func (pipe *RPCEverydayPipeline) Close() error {

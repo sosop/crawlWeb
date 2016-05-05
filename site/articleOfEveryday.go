@@ -41,7 +41,7 @@ func (ea *EveryDayArticleProcessor) Process(p *downloader.Page) {
 	q, err := p.Parser()
 
 	if err != nil {
-		Slogger.Error(err)
+		Logger.Error(err)
 		return
 	}
 	art := q.Find("#article_show")
@@ -59,7 +59,7 @@ type EveryDayVoiceProcessor struct {
 func (ev *EveryDayVoiceProcessor) Process(p *downloader.Page) {
 	q, err := p.Parser()
 	if err != nil {
-		Slogger.Error(err)
+		Logger.Error(err)
 		return
 	}
 	q.Find(".list_box").Each(func(index int, s *goquery.Selection) {
@@ -80,7 +80,7 @@ type EveryDayBookProcessor struct {
 func (ev *EveryDayBookProcessor) Process(p *downloader.Page) {
 	q, err := p.Parser()
 	if err != nil {
-		Slogger.Error(err)
+		Logger.Error(err)
 		return
 	}
 	q.Find(".book-list li").Each(func(index int, s *goquery.Selection) {
