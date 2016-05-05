@@ -1,0 +1,7 @@
+mode=dev
+
+[prod]
+rpc.host=
+
+[dev]
+redis_host=127.0.0.1:8088/do

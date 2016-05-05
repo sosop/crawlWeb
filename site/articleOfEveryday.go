@@ -2,8 +2,9 @@ package web
 
 import (
 	. "crawlWeb/slog"
-	"goMagic/downloader"
 	"strings"
+
+	"goMagic/downloader"
 
 	"github.com/PuerkitoBio/goquery"
 )
@@ -45,11 +46,11 @@ func (ea *EveryDayArticleProcessor) Process(p *downloader.Page) {
 	}
 	art := q.Find("#article_show")
 	title := art.Find("h1").Text()
-	p.PutField("Title", strings.TrimSpace(title))
+	p.PutField("title", strings.TrimSpace(title))
 	url := "http://meiriyiwen.com/"
-	p.PutField("URL", url)
+	p.PutField("url", url)
 	author := art.Find(".article_author span").Text()
-	p.PutField("Author", strings.TrimSpace(author))
+	p.PutField("author", strings.TrimSpace(author))
 }
 
 type EveryDayVoiceProcessor struct {
@@ -63,11 +64,11 @@ func (ev *EveryDayVoiceProcessor) Process(p *downloader.Page) {
 	}
 	q.Find(".list_box").Each(func(index int, s *goquery.Selection) {
 		url := s.Find(".box_list_img").AttrOr("href", "")
-		p.PutField("URL", strings.TrimSpace(url))
+		p.PutField("url", strings.TrimSpace(p.URL+url))
 		pic := s.Find(".box_list_img img").AttrOr("src", "")
-		p.PutField("PicURL", strings.TrimSpace(pic))
+		p.PutField("pic", strings.TrimSpace(p.URL+pic))
 		title := s.Find(".list_author a").Text()
-		p.PutField("Title", strings.TrimSpace(title))
+		p.PutField("title", strings.TrimSpace(title))
 		author := s.Find(".author_name").Text()
 		p.PutField("author", strings.TrimSpace(author))
 	})
@@ -84,11 +85,11 @@ func (ev *EveryDayBookProcessor) Process(p *downloader.Page) {
 	}
 	q.Find(".book-list li").Each(func(index int, s *goquery.Selection) {
 		url := s.Find(".book-bg").AttrOr("href", "")
-		p.PutField("URL", strings.TrimSpace(url))
+		p.PutField("url", strings.TrimSpace(p.URL+url))
 		pic := s.Find(".book-bg img").AttrOr("src", "")
-		p.PutField("PicURL", strings.TrimSpace(pic))
+		p.PutField("pic", strings.TrimSpace(p.URL+pic))
 		title := s.Find(".book-name a").Text()
-		p.PutField("Title", strings.TrimSpace(title))
+		p.PutField("title", strings.TrimSpace(title))
 		author := s.Find(".book-author").Text()
 		p.PutField("author", strings.TrimSpace(author))
 	})
