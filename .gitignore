@@ -14,3 +14,4 @@ _site
 .DS_Store
 *.r
 logs/*
+config/*
