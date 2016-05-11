@@ -1,0 +1,58 @@
+{
+	"ImportPath": "crawlWeb",
+	"GoVersion": "devel",
+	"GodepVersion": "v60",
+	"Deps": [
+		{
+			"ImportPath": "github.com/PuerkitoBio/goquery",
+			"Comment": "v0.3.2-86-g2e29ea4",
+			"Rev": "2e29ea41f0d13f4a303c75553f4eeadddc7a4c56"
+		},
+		{
+			"ImportPath": "github.com/andybalholm/cascadia",
+			"Rev": "3ad29d1ad1c4f2023e355603324348cf1f4b2d48"
+		},
+		{
+			"ImportPath": "github.com/cihub/seelog",
+			"Comment": "v2.6-1-g3549fbb",
+			"Rev": "3549fbb0ea07f15a54dba3d16ccb22785a813d30"
+		},
+		{
+			"ImportPath": "github.com/robfig/cron",
+			"Comment": "v1-16-g0f39cf7",
+			"Rev": "0f39cf7ebc65a602f45692f9894bd6a193faf8fa"
+		},
+		{
+			"ImportPath": "github.com/sosop/libconfig",
+			"Rev": "93c369c46fb181b5386071d93894633d95146ed6"
+		},
+		{
+			"ImportPath": "goMagic/core",
+			"Rev": "aedf9b40265db3fd659b8f16cc52393e2a37c2dc"
+		},
+		{
+			"ImportPath": "goMagic/downloader",
+			"Rev": "aedf9b40265db3fd659b8f16cc52393e2a37c2dc"
+		},
+		{
+			"ImportPath": "goMagic/pipe",
+			"Rev": "aedf9b40265db3fd659b8f16cc52393e2a37c2dc"
+		},
+		{
+			"ImportPath": "goMagic/processor",
+			"Rev": "aedf9b40265db3fd659b8f16cc52393e2a37c2dc"
+		},
+		{
+			"ImportPath": "goMagic/scheduler",
+			"Rev": "aedf9b40265db3fd659b8f16cc52393e2a37c2dc"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html",
+			"Rev": "589fda73dd0faec3dc59e7d7dab5b069e3fce0f9"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html/atom",
+			"Rev": "589fda73dd0faec3dc59e7d7dab5b069e3fce0f9"
+		}
+	]
+}
